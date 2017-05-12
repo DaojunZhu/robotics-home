@@ -1,0 +1,9 @@
+
+<launch>
+		<node name="recognizer" pkg="pocketsphinx" type="recognizer.py">
+    	<param name="lm" value="$(find help_carry_shopping_bag)/config/voice.lm"/>
+    	<param name="dict" value="$(find help_carry_shopping_bag)/config/voice.dic"/>
+  	</node>
+
+</launch>
+

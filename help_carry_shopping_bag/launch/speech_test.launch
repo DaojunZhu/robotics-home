@@ -1,0 +1,7 @@
+<launch>
+ <node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
+        <param name="lm" value="$(find help_carry_shopping_bag)/config/voice_commands.lm" />
+        <param name="dict" value="$(find help_carry_shopping_bag)/config/voice_commands.dic" />
+        <remap from="recognizer/output" to="voice_command" />
+ </node>
+</launch>

@@ -1,0 +1,16 @@
+bring it to the kitchen
+take it to the dinning room
+carry it to the living room
+get it to the bedroom
+
+car
+continue
+start
+robot continue
+robot start
+follow me
+
+yes
+no
+
+

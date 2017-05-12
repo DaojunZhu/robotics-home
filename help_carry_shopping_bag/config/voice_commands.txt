@@ -1,0 +1,18 @@
+stop
+shut down
+abort
+follow
+follow me
+start navigation
+navigation
+start
+pause speech
+continue speech
+pause
+continue
+car 
+this is the car position
+kitchen
+take it to the kitchen
+bedroom
+take it to the bedroom

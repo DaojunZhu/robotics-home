@@ -1,0 +1,110 @@
+Language model created by QuickLM on Sun Apr  2 12:09:59 EDT 2017
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 12 sentences and 22 words
+
+\data\
+ngram 1=22
+ngram 2=35
+ngram 3=30
+
+\1-grams:
+-0.9777 </s> -0.3010
+-0.9777 <s> -0.2441
+-2.0569 BEDROOM -0.2527
+-2.0569 BRING -0.2855
+-2.0569 CAR -0.2527
+-2.0569 CARRY -0.2855
+-1.7559 CONTINUE -0.2527
+-2.0569 DINNING -0.2933
+-2.0569 FOLLOW -0.2972
+-2.0569 GET -0.2855
+-1.4548 IT -0.2855
+-2.0569 KITCHEN -0.2527
+-2.0569 LIVING -0.2933
+-2.0569 ME -0.2527
+-2.0569 NO -0.2527
+-1.7559 ROBOT -0.2855
+-1.7559 ROOM -0.2527
+-1.7559 START -0.2527
+-2.0569 TAKE -0.2855
+-1.4548 THE -0.2855
+-1.4548 TO -0.2855
+-2.0569 YES -0.2527
+
+\2-grams:
+-1.3802 <s> BRING 0.0000
+-1.3802 <s> CAR 0.0000
+-1.3802 <s> CARRY 0.0000
+-1.3802 <s> CONTINUE 0.0000
+-1.3802 <s> FOLLOW 0.0000
+-1.3802 <s> GET 0.0000
+-1.3802 <s> NO 0.0000
+-1.0792 <s> ROBOT 0.0000
+-1.3802 <s> START 0.0000
+-1.3802 <s> TAKE 0.0000
+-1.3802 <s> YES 0.0000
+-0.3010 BEDROOM </s> -0.3010
+-0.3010 BRING IT 0.0000
+-0.3010 CAR </s> -0.3010
+-0.3010 CARRY IT 0.0000
+-0.3010 CONTINUE </s> -0.3010
+-0.3010 DINNING ROOM 0.0000
+-0.3010 FOLLOW ME 0.0000
+-0.3010 GET IT 0.0000
+-0.3010 IT TO 0.0000
+-0.3010 KITCHEN </s> -0.3010
+-0.3010 LIVING ROOM 0.0000
+-0.3010 ME </s> -0.3010
+-0.3010 NO </s> -0.3010
+-0.6021 ROBOT CONTINUE 0.0000
+-0.6021 ROBOT START 0.0000
+-0.3010 ROOM </s> -0.3010
+-0.3010 START </s> -0.3010
+-0.3010 TAKE IT 0.0000
+-0.9031 THE BEDROOM 0.0000
+-0.9031 THE DINNING 0.0000
+-0.9031 THE KITCHEN 0.0000
+-0.9031 THE LIVING 0.0000
+-0.3010 TO THE 0.0000
+-0.3010 YES </s> -0.3010
+
+\3-grams:
+-0.3010 <s> BRING IT
+-0.3010 <s> CAR </s>
+-0.3010 <s> CARRY IT
+-0.3010 <s> CONTINUE </s>
+-0.3010 <s> FOLLOW ME
+-0.3010 <s> GET IT
+-0.3010 <s> NO </s>
+-0.6021 <s> ROBOT CONTINUE
+-0.6021 <s> ROBOT START
+-0.3010 <s> START </s>
+-0.3010 <s> TAKE IT
+-0.3010 <s> YES </s>
+-0.3010 BRING IT TO
+-0.3010 CARRY IT TO
+-0.3010 DINNING ROOM </s>
+-0.3010 FOLLOW ME </s>
+-0.3010 GET IT TO
+-0.3010 IT TO THE
+-0.3010 LIVING ROOM </s>
+-0.3010 ROBOT CONTINUE </s>
+-0.3010 ROBOT START </s>
+-0.3010 TAKE IT TO
+-0.3010 THE BEDROOM </s>
+-0.3010 THE DINNING ROOM
+-0.3010 THE KITCHEN </s>
+-0.3010 THE LIVING ROOM
+-0.9031 TO THE BEDROOM
+-0.9031 TO THE DINNING
+-0.9031 TO THE KITCHEN
+-0.9031 TO THE LIVING
+
+\end\

@@ -1,0 +1,119 @@
+Language model created by QuickLM on Wed Mar 22 04:15:12 EDT 2017
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 18 sentences and 23 words
+
+\data\
+ngram 1=23
+ngram 2=41
+ngram 3=32
+
+\1-grams:
+-0.8970 </s> -0.3010
+-0.8970 <s> -0.2279
+-2.1523 ABORT -0.2422
+-1.8513 BEDROOM -0.2422
+-1.8513 CAR -0.2386
+-1.8513 CONTINUE -0.2351
+-2.1523 DOWN -0.2422
+-1.8513 FOLLOW -0.2386
+-2.1523 IS -0.2918
+-1.8513 IT -0.2949
+-1.8513 KITCHEN -0.2422
+-2.1523 ME -0.2422
+-1.8513 NAVIGATION -0.2422
+-1.8513 PAUSE -0.2351
+-2.1523 POSITION -0.2422
+-2.1523 SHUT -0.2980
+-1.8513 SPEECH -0.2422
+-1.8513 START -0.2351
+-2.1523 STOP -0.2422
+-1.8513 TAKE -0.2949
+-1.6752 THE -0.2823
+-2.1523 THIS -0.2980
+-1.8513 TO -0.2918
+
+\2-grams:
+-1.5563 <s> ABORT 0.0000
+-1.5563 <s> BEDROOM 0.0000
+-1.5563 <s> CAR -0.1761
+-1.2553 <s> CONTINUE 0.0000
+-1.2553 <s> FOLLOW 0.0000
+-1.5563 <s> KITCHEN 0.0000
+-1.5563 <s> NAVIGATION 0.0000
+-1.2553 <s> PAUSE 0.0000
+-1.5563 <s> SHUT 0.0000
+-1.2553 <s> START 0.0000
+-1.5563 <s> STOP 0.0000
+-1.2553 <s> TAKE 0.0000
+-1.5563 <s> THIS 0.0000
+-0.3010 ABORT </s> -0.3010
+-0.3010 BEDROOM </s> -0.3010
+-0.6021 CAR </s> -0.3010
+-0.6021 CAR POSITION 0.0000
+-0.6021 CONTINUE </s> -0.3010
+-0.6021 CONTINUE SPEECH 0.0000
+-0.3010 DOWN </s> -0.3010
+-0.6021 FOLLOW </s> -0.3010
+-0.6021 FOLLOW ME 0.0000
+-0.3010 IS THE -0.2218
+-0.3010 IT TO 0.0000
+-0.3010 KITCHEN </s> -0.3010
+-0.3010 ME </s> -0.3010
+-0.3010 NAVIGATION </s> -0.3010
+-0.6021 PAUSE </s> -0.3010
+-0.6021 PAUSE SPEECH 0.0000
+-0.3010 POSITION </s> -0.3010
+-0.3010 SHUT DOWN 0.0000
+-0.3010 SPEECH </s> -0.3010
+-0.6021 START </s> -0.3010
+-0.6021 START NAVIGATION 0.0000
+-0.3010 STOP </s> -0.3010
+-0.3010 TAKE IT 0.0000
+-0.7782 THE BEDROOM 0.0000
+-0.7782 THE CAR -0.1761
+-0.7782 THE KITCHEN 0.0000
+-0.3010 THIS IS 0.0000
+-0.3010 TO THE -0.1249
+
+\3-grams:
+-0.3010 <s> ABORT </s>
+-0.3010 <s> BEDROOM </s>
+-0.3010 <s> CAR </s>
+-0.6021 <s> CONTINUE </s>
+-0.6021 <s> CONTINUE SPEECH
+-0.6021 <s> FOLLOW </s>
+-0.6021 <s> FOLLOW ME
+-0.3010 <s> KITCHEN </s>
+-0.3010 <s> NAVIGATION </s>
+-0.6021 <s> PAUSE </s>
+-0.6021 <s> PAUSE SPEECH
+-0.3010 <s> SHUT DOWN
+-0.6021 <s> START </s>
+-0.6021 <s> START NAVIGATION
+-0.3010 <s> STOP </s>
+-0.3010 <s> TAKE IT
+-0.3010 <s> THIS IS
+-0.3010 CAR POSITION </s>
+-0.3010 CONTINUE SPEECH </s>
+-0.3010 FOLLOW ME </s>
+-0.3010 IS THE CAR
+-0.3010 IT TO THE
+-0.3010 PAUSE SPEECH </s>
+-0.3010 SHUT DOWN </s>
+-0.3010 START NAVIGATION </s>
+-0.3010 TAKE IT TO
+-0.3010 THE BEDROOM </s>
+-0.3010 THE CAR POSITION
+-0.3010 THE KITCHEN </s>
+-0.3010 THIS IS THE
+-0.6021 TO THE BEDROOM
+-0.6021 TO THE KITCHEN
+
+\end\

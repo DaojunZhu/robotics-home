@@ -1,0 +1,14 @@
+<launch>
+    
+    <node pkg="help_carry_shopping_bag" type="select_cmd_vel.py" name="select_cmd_vel_node" />
+		<node pkg="help_carry_shopping_bag" type="navigation.py" name="go_and_back_nav" output="screen"/>
+    <node pkg="help_carry_shopping_bag" type="send_stop_cmd_vel" name="send_stop_cmd_vel_node" />
+    <node pkg="topic_tools" type="mux" name="cmd_vel_mux" args="cmd_vel stop_cmd_vel follow_cmd_vel nav_cmd_vel" output="screen" />
+    <node pkg="sound_play" type="soundplay_node.py" name="soundplay_node" />
+		<node pkg="help_carry_shopping_bag" type="car_help.py" name="car_help_recognizer" />
+		<node name="recognizer" pkg="pocketsphinx" type="recognizer.py">
+    	<param name="lm" value="$(find help_carry_shopping_bag)/config/voice.lm"/>
+    	<param name="dict" value="$(find help_carry_shopping_bag)/config/voice.dic"/>
+  	</node>
+
+</launch>
