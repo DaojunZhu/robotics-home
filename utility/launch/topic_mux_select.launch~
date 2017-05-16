@@ -1,0 +1,5 @@
+<launch>    
+
+<node pkg="topic_tools" type="mux" name="cmd_vel_mux" args="cmd_vel stop_cmd_vel follow_cmd_vel nav_cmd_vel" output="screen" />
+
+</launch>

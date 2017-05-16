@@ -1,0 +1,7 @@
+#goal definition
+float32 target_angle
+---
+#result definition
+---
+#feedback definition
+float32 past_angle
