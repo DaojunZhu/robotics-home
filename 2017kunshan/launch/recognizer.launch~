@@ -1,0 +1,7 @@
+<launch>
+  <node name="recognizer" pkg="pocketsphinx" type="recognizer.py">
+    <param name="lm" value="$(find beginner_tutorials)/configs/shop.lm"/>
+    <param name="dict" value="$(find beginner_tutorials)/configs/shop.dic"/>
+  </node>
+
+</launch>

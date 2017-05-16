@@ -223,3 +223,19 @@ add_dependencies(map_saver_shopping ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin
 target_link_libraries(map_saver_shopping
   ${catkin_LIBRARIES}
 )
+
+add_executable(laser_filter_leg
+  src/laser_filter_leg.cpp
+)
+add_dependencies(laser_filter_leg ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(laser_filter_leg
+  ${catkin_LIBRARIES}
+)
+
+add_executable(voice_analysis
+  src/voice_analysis.cpp
+)
+add_dependencies(voice_analysis ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(voice_analysis
+  ${catkin_LIBRARIES}
+)

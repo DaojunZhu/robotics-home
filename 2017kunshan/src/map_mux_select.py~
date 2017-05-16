@@ -17,7 +17,7 @@ rospy.loginfo("===============map-mux-select.py==============//")
 try:
     rospy.wait_for_service('map_select_mux/select',5)
 except rospy.exceptions.ROSException:
-    rospy.logerr('failed to connected to map_select_mux/select service')
+    rospy.logerr('failed to connected to mux select service')
     sys.exit()
 mux_select = rospy.ServiceProxy('mux/select',MuxSelect)
 rospy.loginfo('Connected to mux select service.')

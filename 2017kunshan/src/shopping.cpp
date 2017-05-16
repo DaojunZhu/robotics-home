@@ -27,13 +27,14 @@ private:
     ros::NodeHandle node_handle_;
     ros::Subscriber voice_cmd_sub;      //subscribe to /recognize/output topic
     ros::Publisher nav_goal_pub;	         //publish to topic : /move_base_simple/goal
+    ros::Publisher permit_pub_static_map ;	//permit  map_server_for_shopping to pub static map
     ros::ServiceClient mux_select_client;           //mux_select client
     ros::ServiceClient clear_costmaps_client;          //clear costmaps client
     std::string  map_frame = "map"; 	//the name of the map frame 
     std::map<std::string , geometry_msgs::PoseStamped> goods_mapto_pose;    
     bool pause_listenning = true;  //whether pause listenning
     sound_play::SoundClient sc;
-    std::set<std::string> goods{"coffee","milk","juice","sprite","water","biscuit","chips","redbull","roll","toothpaste","home"};
+    std::set<std::string> goods{"coffee","milk","juice","sprite","water","biscuit","chips","redbull","roll","toothpaste","terminal"};
     enum Flag {FOLLOW,NAV,NO};
     Flag flag = NO;
     tf::TransformListener listener;	//  tf transform listener 
@@ -53,7 +54,8 @@ Shopping::Shopping(ros::NodeHandle nh)
 {
     voice_cmd_sub = node_handle_.subscribe<std_msgs::String>("voice_cmd",1,&Shopping::voice_cmd_sub_cb,this);
     nav_goal_pub = node_handle_.advertise<geometry_msgs::PoseStamped>("move_base_simple/goal", 1);
-    mux_select_client = node_handle_.serviceClient<topic_tools::MuxSelect>("mux/select");           
+   // permit_pub_static_map = node_handle_.advertise<std_msgs::String>("permit_pub_map_flag", 1) ;
+    mux_select_client = node_handle_.serviceClient<topic_tools::MuxSelect>("cmd_vel_select_mux/select");        //////   cmd_vel_select_mux/select
     clear_costmaps_client = node_handle_.serviceClient<std_srvs::Empty>("move_base/clear_costmaps");
     move_base_client = new MoveBaseClient("move_base", true) ; 
     bool connect_service_before_timeout =  mux_select_client.waitForExistence(ros::Duration(2.0)); 
@@ -68,9 +70,11 @@ Shopping::Shopping(ros::NodeHandle nh)
         ROS_ERROR("failed connecting mux/select service...");
         exit(0);
     }
+    ROS_INFO("===================shopping_node===================");
     ROS_INFO("connected mux/select service...");
     ROS_INFO("connected move_base service...");
     ROS_INFO("node initialized.....");
+    ROS_INFO("===================shopping_node===================");
 }  
 
 
@@ -78,17 +82,17 @@ Shopping::Shopping(ros::NodeHandle nh)
 //voice_cmd_sub_cb
 void Shopping::voice_cmd_sub_cb(const std_msgs::StringConstPtr &msg)
 {
-    if(msg->data == "continue")
-    {
-        sc.say("I will continue listenning");
-        //ROS_INFO("I will start listenning...");
-        pause_listenning = false;
-        return;
-    }
-    if(pause_listenning)
-        return ;
-    else
-    {
+//    if(msg->data == "continue")
+//    {
+//        sc.say("I will continue listenning");
+//        //ROS_INFO("I will start listenning...");
+//        pause_listenning = false;
+//        return;
+//    }
+ //   if(pause_listenning)
+  //      return ;
+  //  else
+  //  {
         auto iter = goods.find(msg->data);
         auto iter2 = goods_mapto_pose.find(msg->data);
         if(msg->data == "follow")
@@ -144,11 +148,13 @@ void Shopping::voice_cmd_sub_cb(const std_msgs::StringConstPtr &msg)
                 /*debug*/
 
                 ///当到达柜台的时候，设置参数permit_save_map为true， 允许map_saver_shopping节点保存地图
-                if(*iter == "home")
-                {  
+  /*              if(*iter == "home")
+					{  
                     ROS_INFO("permit to save the map");
-                    node_handle_.setParam("permit_save_map",true);      //permit to save the map 
+                   node_handle_.setParam("permit_save_map",true);      	//permit to save the map 
+                    node_handle_.setParam("switch_map_server",true);		//switch to staitc_map 
                 }
+    */
                 pause_listenning = true;
             }
             else
@@ -156,8 +162,9 @@ void Shopping::voice_cmd_sub_cb(const std_msgs::StringConstPtr &msg)
                 std::cout << "failed, rememberred " << *iter << " before "<< std::endl;
             }
         }
-        else if(msg->data == "nav")
+        else if(msg->data == "navigation")
         {
+           // permit_pub_static_map.publish("YES");
             topic_tools::MuxSelect srv;
             srv.request.topic = "nav_cmd_vel";
             if(mux_select_client.call(srv) == true)
@@ -184,7 +191,7 @@ void Shopping::voice_cmd_sub_cb(const std_msgs::StringConstPtr &msg)
             send_nav_goal(iter2->second);
             
         }    
-    }   
+  //  }   
 }
 
  void Shopping::goal_done_cb( const actionlib::SimpleClientGoalState&  state, const move_base_msgs::MoveBaseResultConstPtr&  result, const std::string otherArg,  geometry_msgs::PoseStamped& goal )
@@ -204,7 +211,7 @@ void Shopping::voice_cmd_sub_cb(const std_msgs::StringConstPtr &msg)
  			goal1.target_pose.header.stamp = ros::Time::now();
  			goal1.target_pose.header.frame_id = "map";
             try{
-            goal = goods_mapto_pose.at("home");
+            goal = goods_mapto_pose.at("terminal");
  			goal1.target_pose = goal;
  			}
  			catch(const std::out_of_range& err ){
