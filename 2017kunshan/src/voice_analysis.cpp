@@ -79,7 +79,9 @@ int main(int argc, char **argv)
     ros::Subscriber voice_sub = nh.subscribe("recognizer/output",1,callback);
     cmd_pub = nh.advertise<std_msgs::String>("voice_cmd",1);
     sc = new sound_play::SoundClient();
+	ROS_INFO("===============voice analysis node=========================");
     ROS_INFO("node initialized.");
+    
     ros::spin();
     
     return 0;
